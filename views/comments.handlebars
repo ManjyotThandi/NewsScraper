@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="card text-center">
+                <div class="card-header">
+                    Leave a Note!
+                </div>
+                {{!-- <form action="/articles/{{id}}" method="POST"> --}}
+                {{!-- could have used the method in form as well, but put it in the js just to try --}}
+                <form id="LOL">
+                    <p id="id" data-id="{{id}}">{{id}}</p>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Title</label>
+                        <input id="title" name="title" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Note</label>
+                        <input id="body" name="body" type="text" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Title">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/articles/" class="btn btn-primary" target="_blank">Save</a>
+                    {{!-- <a href="" class="btn btn-primary" target="_blank" id="comment" data-id={{id}}>Comment</a> --}}
+                </form>
+                <p class="card-text" data-id={{id}}>{{link}}</p>
+            </div>
+            <h5 class="card-title">Previous Notes</h5>
+            {{#each comment}}
+            <div class="card text-center">
+                <div class="card-header">
+                    Comment
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text" data-id={{_id}}>{{body}}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    Last updated:
+                </div>
+            </div>
+            {{!-- <p data-id = {{id}}>{{title}}<br/>{{link}}</p>
+<p>{{link}}</p> --}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {{!-- ICONS --}}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {{!-- Jquery --}}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Compiled and minified MATERIALIZE CSS -->
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Compiled and minified MATERIALIZE JavaScript -->
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!--local CSS--->
+
+  <!--local JS--->
+  
+
+  <title>Article Scraper</title>
+</head>
+
+<body>
+    {{> header}}
+  <main>
+    {{{body}}}
+  </main>
+  
+
+
+  <script>
+    console.log("LOLOLOL")
+//$(document).on("click","#comment", function(event){
+  //event.preventDefault();
+   // console.log("LOOOL")
+    //$("#notes").empty();
+   // var thisId = $(this).attr("data-id")
+
+    // Make an ajax request for article using ID attr
+   // $.ajax({
+      //  method: "GET",
+      //  url: "/articles/" + thisId
+   // }).then(function(data){
+        //console.log("We finished" + data)
+   // })
+//})
+
+
+// this is to post a comment
+//$(document).on("click","#savenote", function(){
+  $("#LOL").submit(function(event){
+    event.preventDefault();
+    //var thisId = $(this).attr("data-id");
+    var thisId = $("#id").text();
+    $.ajax({
+        method: "POST",
+        url: "/articles/"+thisId,
+        data: {
+          // Value taken from title input
+          title: $("#title").val(),
+          // Value taken from note textarea
+          body: $("#body").val()
+        }
+      })
+        // With that done
+        .then(function(data) {
+          // Log the response
+          console.log(data);
+          // Empty the notes section
+          $("#notes").empty();
+        });
+    
+      // Also, remove the values entered in the input and textarea for note entry
+      $("#titleinput").val("");
+      $("#bodyinput").val("");
+    });
+  </script>
+</body>
+
+</html>

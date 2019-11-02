@@ -1,0 +1,28 @@
+<div>
+<h1>Articles!</h1>
+<!-- This loops through all articles from db -->
+{{#each art}}
+<div class="card text-center">
+  <div class="card-header">
+    Featured Article
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text" data-id = {{id}}>{{link}}</p>
+    <a href="{{link}}" class="btn btn-primary" target ="_blank">Read</a>
+    <a href="/articles/{{id}}" class="btn btn-primary" target ="_blank" id="comment" data-id = {{id}}>Comment</a>
+  </div>
+  <div class="card-footer text-muted">
+    Last updated:
+  </div>
+</div>
+{{!-- <p data-id = {{id}}>{{title}}<br/>{{link}}</p>
+<p>{{link}}</p> --}}
+{{/each}}
+</div>
+<div id="notes">
+<h1>Notes</h1>
+{{oneart}}
+
+</div>
+
